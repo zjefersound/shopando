@@ -29,7 +29,7 @@ const Login: React.FC = () => {
     }
 
     const login = () => {
-
+        console.log(formData);
     }
     
     return (

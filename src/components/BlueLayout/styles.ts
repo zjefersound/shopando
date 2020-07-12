@@ -59,11 +59,6 @@ export const Wrapper = styled.div`
 
 `;
 
-const contentCSS = css`
-    display: flex;
-    flex-direction: column;
-`;
-
 export const LogoBackground = styled.img`
     width: min(60%, max(200px, 100vh) );
     height: auto;
