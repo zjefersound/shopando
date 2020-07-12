@@ -15,10 +15,16 @@ export default createGlobalStyle`
         height: 100%;
         width: 100%; 
     }
+    button, input, a {
+        transition: 0.2s;
+    }
     *, button, input {
         border: 0;
         background: none;
         font-family: Roboto, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    a:hover {
+        opacity: 0.7;
     }
     html {
         background: var(--primary);
@@ -34,5 +40,7 @@ export default createGlobalStyle`
         --outline: #987F68;
         --success: #1AA371;
         --danger: #BD5959;
+        --dark-hover: #BD5959;
+        --light-hover: #987F68;
     }
 `;
