@@ -52,7 +52,10 @@ export const Wrapper = styled.div`
     box-shadow: 0 0 16px #0005;
 
     @media ( min-width: 1000px ) {
+        padding-top: 120px;
+        padding-bottom: 64px;
         height:  min( 780px, 80vh );
+        height:  auto;
         width: min( 1280px, 60vw );
         border-radius: 16px;
     }
@@ -60,15 +63,19 @@ export const Wrapper = styled.div`
 `;
 
 export const LogoBackground = styled.img`
-    width: min(60%, max(200px, 100vh) );
+    display: flex;
+    width: min(60%, max(40vw, 500px) );
     height: auto;
+    
+    flex-shrink: 0;
 
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: -1;
     @media ( min-width: 1000px ) {
-        
+        max-height: 100%;
+        width: auto ;
     }
 `;
 export const MobileLogo = styled.img`

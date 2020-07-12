@@ -15,20 +15,37 @@ import logoBg from '../../assets/images/shopando-outline.png';
 import circle1 from '../../assets/images/t-l-circle.png';
 import circle2 from '../../assets/images/b-r-circle.png';
 
-const BlueLayout: React.FC = (props) => {
+interface Props {
+    disableWrapper?: boolean;
+    disableWrapperImageBg?: boolean;
+    disableMobileHeader?: boolean;
+}
+
+const BlueLayout: React.FC<Props> = (props) => {
     return (
         <Container> 
             <LeftTopCircle src={circle1}  />
             <BottomRightCircle src={circle2}/>
-            <Wrapper>
-                <MobileHeader>
-                    <MobileLogo src={logo}/>  
-                    <span>Shopando</span>
-                </MobileHeader>
-                {props.children}
-                
-                <LogoBackground src={logoBg}/> 
-            </Wrapper>
+            {props.disableWrapper 
+                ? props.children
+                : (
+                    <Wrapper>
+                        {!props.disableMobileHeader &&(
+                            <MobileHeader>
+                                <MobileLogo src={logo}/>  
+                                <span>Shopando</span>
+                            </MobileHeader>
+                        )}
+
+                        {props.children}
+
+                        {!props.disableWrapperImageBg && (
+                            <LogoBackground src={logoBg}/> 
+                        )}
+                    </Wrapper>
+                )
+            }
+            
         </Container>
     );
 }

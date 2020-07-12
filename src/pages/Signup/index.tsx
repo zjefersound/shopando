@@ -12,6 +12,8 @@ import {
     PasswordInput,
     LoginButton,
     Layout,
+    ContentHeader,
+    ContentBody
 } from './styles';
 
 import { Link } from 'react-router-dom';
@@ -57,7 +59,7 @@ const Signup: React.FC = () => {
     }
     
     return (
-        <Layout>
+        <Layout disableWrapper>
             <Wrapper>
                 <Header>
                     <Link to='/' className="backButton">
@@ -65,31 +67,64 @@ const Signup: React.FC = () => {
                         Voltar ao início   
                     </Link> 
                 </Header>
-                <Content>    
-                    <h1>Faça seu cadastro!</h1>
-                    <h2>Yeah</h2>
-                    <EmailInput 
-                        name='email'
-                        id='email'
-                        type='text' 
-                        placeholder='email' 
-                        onChange = { handleInputChange }
-                    />
-                    <PasswordInput 
-                        name='password'
-                        id='password'
-                        type='password'  
-                        placeholder='senha'
-                        onChange = { handleInputChange }
-                    />
-                    <LoginButton onClick={signup}>
-                        Entrar
-                    </LoginButton>  
-                    
-                    {/* <Right>
-                        <Logo src={logo}/>
-                        <span>Shopando</span>
-                    </Right> */}
+                <Content> 
+                    <ContentHeader>
+                        <div id="left">
+                            <h1>Cadastro</h1>
+                            <h2>Preencha as informações</h2>
+                        </div>
+                        <div id="right">
+                            <Logo src={logo}/>
+                            <span>Shopando</span>              
+                        </div>
+                    </ContentHeader>   
+                    <ContentBody>
+                        <Left>
+                            <EmailInput 
+                                name='email'
+                                id='email'
+                                type='text' 
+                                placeholder='email' 
+                                onChange = { handleInputChange }
+                            />
+                            <PasswordInput 
+                                name='password'
+                                id='password'
+                                type='password'  
+                                placeholder='senha'
+                                onChange = { handleInputChange }
+                            />
+                            <PasswordInput 
+                                name='password'
+                                id='password'
+                                type='password'  
+                                placeholder='senha'
+                                onChange = { handleInputChange }
+                            />
+                        </Left>
+                        <Right>
+                            <EmailInput 
+                                name='email'
+                                id='email'
+                                type='text' 
+                                placeholder='email' 
+                                onChange = { handleInputChange }
+                            />
+                            <PasswordInput 
+                                name='password'
+                                id='password'
+                                type='password'  
+                                placeholder='senha'
+                                onChange = { handleInputChange }
+                            />
+                            
+                            <LoginButton onClick={signup}>
+                                Criar conta
+                            </LoginButton> 
+                        </Right>
+
+                    </ContentBody> 
+
                 </Content>
             </Wrapper>
             
