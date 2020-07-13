@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { ArrowLeft } from '../../styles/Icons';
+import { ArrowLeft, XCircle } from '../../styles/Icons';
 
-import TextInput from '../../components/TextInput';
+import TInput from '../../components/TextInput';
 import Button from '../../components/Button';
 
 import BlueLayout from '../../components/BlueLayout';
@@ -101,6 +101,10 @@ export const Content = styled.div`
     flex-direction: column;
     padding: 32px;
     padding-bottom: 80px;
+    @media ( min-width ) {
+        padding: 64px;
+        padding-bottom: 80px;
+    }
 
 `;
 export const ContentBody = styled.div`
@@ -121,21 +125,38 @@ export const ArrowLeftIcon = styled(ArrowLeft)`
     fill: var(--blue-dark);
     height: 20px;
     width: 20px;
-    margin-right: 8px;
+    margin-right: 16px;
 `;
 
 const formMarginTop = css`
     margin-top: 16px;
 `;
-export const EmailInput = styled(TextInput)`
+export const TextInput = styled(TInput)`
     ${formMarginTop}
 `;
 
-export const PasswordInput = styled(TextInput)`
+export const CrossIcon = styled(XCircle)`
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    fill: var(--white);
+`;
+
+export const PasswordInput = styled(TInput)`
     ${formMarginTop}
 `;
 
 export const LoginButton = styled(Button)`
     ${formMarginTop}
+`;
+
+export const ErrorMessage = styled.div`
+    padding: 8px 20px;
+    border-radius: 4px;
+    background: var(--danger);
+    > span {
+        font-size: 14px;
+        color: var(--white);
+    }
 `;
 

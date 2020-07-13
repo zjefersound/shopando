@@ -8,15 +8,17 @@ import {
     Header,
     Content,
     ArrowLeftIcon,
-    EmailInput,
+    TextInput,
     PasswordInput,
     LoginButton,
     Layout,
     ContentHeader,
-    ContentBody
+    ContentBody,
+    ErrorMessage,
+    CrossIcon
 } from './styles';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 import logo from '../../assets/images/shopando.png';
 
@@ -28,13 +30,21 @@ interface UserResponse {
     phone: String;
     password: String;
 }
-
+ 
+const initialFromData = {
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirm_password: '',
+};
 
 const Signup: React.FC = () => {
+    const history = useHistory();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [formData, setFormData] = useState({
-        email: 'email',
-        password: '',
+        ...initialFromData
     });
 
     const [names, setNames] = useState<String[]>();
@@ -47,15 +57,39 @@ const Signup: React.FC = () => {
         const { name, value } = event.target;
         const data = { ...formData, [name]: value }
         setFormData(data);
+        setErrorMessage('');
     }
 
-    const signup = () => {
-        api.get<UserResponse[]>('/users')
-            .then( res => {
-            const namesResponse = res.data.map(item => item.name);
-            setNames(namesResponse);
-        });
-        console.log(names);
+    const signup = async () => {
+        const { 
+            name, 
+            email, 
+            phone, 
+            password, 
+            confirm_password 
+        } = formData;
+        if( 
+            name &&
+            email && 
+            phone &&
+            password &&
+            password === confirm_password
+        ){
+            const id = await api.post<UserResponse[]>('/users', formData); 
+            setFormData(initialFromData);
+            history.push('/');
+        } else {
+            let message = '';
+            if(password !== confirm_password) message += `${errorMessage} Senhas diferentes. `;
+            if(!name) message += (`${errorMessage} Nome vazio.`);
+            if(!email) message += (`${errorMessage} Email vazio.`);
+            if(!phone) message += (`${errorMessage} Fone vazio. `);
+            if(!password) message += (`${errorMessage} Digite uma senha. `);
+
+            setErrorMessage(message);
+        }
+
+
     }
     
     return (
@@ -72,6 +106,12 @@ const Signup: React.FC = () => {
                         <div id="left">
                             <h1>Cadastro</h1>
                             <h2>Preencha as informações</h2>
+                            {errorMessage && (
+                                <ErrorMessage>
+                                    <CrossIcon />
+                                    <span>{errorMessage}</span>
+                                </ErrorMessage>
+                            )}
                         </div>
                         <div id="right">
                             <Logo src={logo}/>
@@ -80,41 +120,43 @@ const Signup: React.FC = () => {
                     </ContentHeader>   
                     <ContentBody>
                         <Left>
-                            <EmailInput 
+                            <TextInput 
+                                name='name'
+                                id='name'
+                                type='text' 
+                                placeholder='name' 
+                                onChange = { handleInputChange }
+                            />
+                            <TextInput 
                                 name='email'
                                 id='email'
                                 type='text' 
                                 placeholder='email' 
                                 onChange = { handleInputChange }
                             />
-                            <PasswordInput 
-                                name='password'
-                                id='password'
-                                type='password'  
-                                placeholder='senha'
+                            <TextInput 
+                                name='phone'
+                                id='phone'
+                                type='text' 
+                                placeholder='phone' 
                                 onChange = { handleInputChange }
                             />
-                            <PasswordInput 
-                                name='password'
-                                id='password'
-                                type='password'  
-                                placeholder='senha'
-                                onChange = { handleInputChange }
-                            />
+                            
                         </Left>
                         <Right>
-                            <EmailInput 
-                                name='email'
-                                id='email'
-                                type='text' 
-                                placeholder='email' 
-                                onChange = { handleInputChange }
-                            />
+                            
                             <PasswordInput 
                                 name='password'
                                 id='password'
                                 type='password'  
                                 placeholder='senha'
+                                onChange = { handleInputChange }
+                            />
+                            <PasswordInput 
+                                name='confirm_password'
+                                id='confirm_password'
+                                type='password'  
+                                placeholder='confirmar senha'
                                 onChange = { handleInputChange }
                             />
                             
