@@ -101,9 +101,11 @@ export const Content = styled.div`
     flex-direction: column;
     padding: 32px;
     padding-bottom: 80px;
-    @media ( min-width ) {
-        padding: 64px;
-        padding-bottom: 80px;
+    flex-wrap: wrap;
+    background: var(--primary);
+    
+    @media ( min-width: 1000px ) {
+        border-radius: 16px;
     }
 
 `;
@@ -135,19 +137,19 @@ export const TextInput = styled(TInput)`
     ${formMarginTop}
 `;
 
-export const CrossIcon = styled(XCircle)`
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    fill: var(--white);
-`;
-
 export const PasswordInput = styled(TInput)`
     ${formMarginTop}
 `;
 
 export const LoginButton = styled(Button)`
     ${formMarginTop}
+`;
+
+export const CrossIcon = styled(XCircle)`
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    fill: var(--white);
 `;
 
 export const ErrorMessage = styled.div`

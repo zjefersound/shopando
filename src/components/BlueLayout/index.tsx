@@ -23,7 +23,7 @@ interface Props {
 
 const BlueLayout: React.FC<Props> = (props) => {
     return (
-        <Container> 
+        <Container>
             <LeftTopCircle src={circle1}  />
             <BottomRightCircle src={circle2}/>
             {props.disableWrapper 

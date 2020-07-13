@@ -1,14 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { ArrowRight } from '../../styles/Icons';
-
-import TextInput from '../../components/TextInput';
-import Button from '../../components/Button';
-
 export const Container = styled.div`
     height: 100%;
     width: 100%;
-    max-height: 100vh;
 
     background: var(--blue-light);
 
@@ -40,13 +34,18 @@ export const BottomRightCircle = styled.img`
 
 export const Wrapper = styled.div`
     display: flex;
-
-    height: 90vh;
     width: 100vw;
-
+    
     background: var(--primary);
     z-index: 2;
     position: relative;
+    flex-wrap: wrap;
+    height: 90vh;
+
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
 
     padding: 32px;
     box-shadow: 0 0 16px #0005;
@@ -54,8 +53,6 @@ export const Wrapper = styled.div`
     @media ( min-width: 1000px ) {
         padding-top: 120px;
         padding-bottom: 64px;
-        height:  min( 780px, 80vh );
-        height:  auto;
         width: min( 1280px, 60vw );
         border-radius: 16px;
     }
@@ -85,7 +82,6 @@ export const MobileLogo = styled.img`
 export const MobileHeader = styled.div`
     display: flex;
     align-items: center;
-    position: absolute;
     flex-wrap: wrap;
     
     > span {

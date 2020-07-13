@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent, FormEvent }  from 'react';
+import React, { useEffect, useState, ChangeEvent, }  from 'react';
 
 import { 
     Left,
@@ -47,8 +47,6 @@ const Signup: React.FC = () => {
         ...initialFromData
     });
 
-    const [names, setNames] = useState<String[]>();
-
     useEffect(() => {
         
     },[]);
@@ -61,6 +59,7 @@ const Signup: React.FC = () => {
     }
 
     const signup = async () => {
+
         const { 
             name, 
             email, 
@@ -68,7 +67,7 @@ const Signup: React.FC = () => {
             password, 
             confirm_password 
         } = formData;
-        if( 
+        if(  
             name &&
             email && 
             phone &&
@@ -86,7 +85,7 @@ const Signup: React.FC = () => {
             if(!phone) message += (`${errorMessage} Fone vazio. `);
             if(!password) message += (`${errorMessage} Digite uma senha. `);
 
-            setErrorMessage(message);
+            if (!errorMessage) setErrorMessage(message);
         }
 
 

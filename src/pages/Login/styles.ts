@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { ArrowRight } from '../../styles/Icons';
+import { ArrowRight, XCircle } from '../../styles/Icons';
 
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
@@ -8,6 +8,13 @@ import Button from '../../components/Button';
 const contentCSS = css`
     display: flex;
     flex-direction: column;
+    > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 32px;
+        text-decoration: none;
+    }
 `;
 
 export const Left = styled.div`
@@ -19,14 +26,7 @@ export const Left = styled.div`
         color: var(--blue-dark);
         margin-top: 16px;
     }
-    > a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 32px;
-        text-decoration: none;
-    }
-    @media ( min-width: 1000px) {
+    @media ( min-width: 500px) {
         padding-left: 32px;
         width: 50%;
     }
@@ -79,3 +79,20 @@ export const LoginButton = styled(Button)`
     ${formMarginTop}
 `;
 
+export const CrossIcon = styled(XCircle)`
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    fill: var(--white);
+`;
+
+export const ErrorMessage = styled.div`
+    margin-top: 16px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    background: var(--danger);
+    > span {
+        font-size: 14px;
+        color: var(--white);
+    }
+`;

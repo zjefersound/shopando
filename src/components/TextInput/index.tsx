@@ -18,7 +18,8 @@ export default styled.input<ButtonProps>`
 
     &:hover, &:focus {
         border-color: var(--brown);
-        
     }
-
+    &:active {
+        background: var(--primary);
+    }
 `;
