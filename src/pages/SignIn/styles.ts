@@ -30,9 +30,12 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    padding: 2.4rem;
+    padding: 1.2rem;
     grid-area: content;
     max-width: 80vw;
+    @media (min-width: 700px) {
+        padding: 2.4rem;
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -42,6 +45,9 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    overflow-y: auto;
+
     @media (min-width: 1100px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -89,6 +95,7 @@ export const Input = styled.input`
     padding: 2.4rem;
     cursor: pointer;
     outline: 0;
+    font-size: 1.6rem;
     ${styleFormComponent}
     
 `;
@@ -109,6 +116,9 @@ export const ButtonSubmit = styled.button`
     font-weight: bold;
 
     ${styleFormComponent}
+    &:hover {
+        background: var(--secondary-dark);
+    }
 `;
 
 export const LinkToSignUp = styled.div`
@@ -117,11 +127,16 @@ export const LinkToSignUp = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.3s;
+    
     cursor: pointer;
 
     > span {
         font-family: Montserrat;
         font-size: 1.6rem;
+    }
+    &:hover {
+        opacity: 0.7;
     }
 `;
 
@@ -153,7 +168,13 @@ export const LogoContent = styled.div`
 `;
 
 export const ShopandoIcon = styled.img`
-    width: 12.8rem;
+    width: 9.6rem;
+    @media ( min-width: 700px ) {
+        width: 12.8rem;
+    }
+    @media ( min-width: 1000px ) {
+        width: 20rem;
+    }
 `;
 
 export const CartBg = styled.img`

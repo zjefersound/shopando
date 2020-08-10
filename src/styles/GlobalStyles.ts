@@ -17,6 +17,7 @@ export default createGlobalStyle`
     }
     button, input, a {
         transition: 0.2s;
+        text-decoration: none;
     }
     *, button, input {
         outline: 0;
@@ -26,7 +27,20 @@ export default createGlobalStyle`
         font-family: Assistant, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         -webkit-appearance: none;
     }
-    
+    /* Change Autocomplete styles in Chrome*/
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-text-fill-color: var(--text);
+        -webkit-box-shadow: 0 0 0px 1000px var(--primary) inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
     a:hover {
         opacity: 0.7;
     }
@@ -38,6 +52,7 @@ export default createGlobalStyle`
         --primary: #0a444b;
         --primary-dark: #031a1d;
         --secondary: #F47E82;
+        --secondary-dark: #db5a5e;
         --text: #27AFAF;
 
         --white: #FFF;
