@@ -6,7 +6,7 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
 
-        color: var(--brown);
+        color: var(--text);
     }
     html, body, #root {
         max-height: 100vh;
@@ -19,10 +19,14 @@ export default createGlobalStyle`
         transition: 0.2s;
     }
     *, button, input {
+        outline: 0;
         border: 0;
+        box-shadow: none;
         background: none;
-        font-family: Roboto, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        font-family: Assistant, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        -webkit-appearance: none;
     }
+    
     a:hover {
         opacity: 0.7;
     }
@@ -31,9 +35,12 @@ export default createGlobalStyle`
     }
     
     :root {
-        --primary: #EDE4DF;
-        --secondary: #E0CEC4;
-        --white: #EDE4DF;
+        --primary: #0a444b;
+        --primary-dark: #031a1d;
+        --secondary: #F47E82;
+        --text: #27AFAF;
+
+        --white: #FFF;
         --blue-light: #27AFAF;
         --blue-dark: #16636D;
         --brown: #503C29;
@@ -42,5 +49,11 @@ export default createGlobalStyle`
         --danger: #BD5959;
         --dark-hover: #BD5959;
         --light-hover: #987F68;
+        font-size: 60%;
+        
+        @media (min-width: 700px) {
+            font-size: 62.5%;
+        }
     }
+   
 `;

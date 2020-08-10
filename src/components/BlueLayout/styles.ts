@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
     @media ( min-width: 1000px ) {
         align-items: center;
     }
@@ -29,7 +29,7 @@ export const BottomRightCircle = styled.img`
     ${bgImgCSS}
     height: 60vh;
     bottom: 0;
-    right: 0;
+    right: 80vh;
 `;
 
 export const Wrapper = styled.div`
@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
     z-index: 2;
     position: relative;
     flex-wrap: wrap;
-    height: 90vh;
+    height: 100vh;
 
     overflow-y: scroll;
     ::-webkit-scrollbar {
@@ -48,13 +48,11 @@ export const Wrapper = styled.div`
     }
 
     padding: 32px;
-    box-shadow: 0 0 16px #0005;
 
     @media ( min-width: 1000px ) {
         padding-top: 120px;
         padding-bottom: 64px;
         width: min( 1280px, 60vw );
-        border-radius: 16px;
     }
 
 `;
@@ -85,7 +83,8 @@ export const MobileHeader = styled.div`
     flex-wrap: wrap;
     
     > span {
-        font-weight: 900;
+        font-family: 'Cairo';
+        font-weight: 700;
         margin-left: 16px;
     }
     @media ( min-width: 500px ) {

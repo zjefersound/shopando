@@ -5,7 +5,10 @@ import {
     Logo,
     NavBar,
     NavContent,
-    AvatarIcon
+    AvatarIcon,
+    Content,
+    SideBar,
+    Main,
 } from './styles';
 
 import { Link } from 'react-router-dom';
@@ -25,14 +28,14 @@ const Home: React.FC = () => {
                     </Link>
                 </NavContent>
             </NavBar>
-            {/* <Content>
+            <Content>
                 <SideBar>
 
                 </SideBar>
                 <Main>
 
                 </Main>
-            </Content> */}
+            </Content>
         </Container>
     );
 }

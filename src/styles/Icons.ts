@@ -1,4 +1,3 @@
-export { FiArrowRight } from 'react-icons/fi';
 export { 
     ArrowLeft, 
     ArrowRight,
