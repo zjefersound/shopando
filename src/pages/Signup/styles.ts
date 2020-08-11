@@ -1,164 +1,137 @@
 import styled, { css } from 'styled-components';
 
+import LandingBackground from '../../components/LandingBackground';
+
 import { ArrowLeft, XCircle } from '../../styles/Icons';
 
-import TInput from '../../components/TextInput';
-import Button from '../../components/Button';
-
-import BlueLayout from '../../components/BlueLayout';
-
-export const Layout = styled(BlueLayout)`
-`; 
-
-const contentCSS = css`
+export const Container = styled(LandingBackground)`
     display: flex;
+    align-items: center;
+    justify-content: center;
+
     flex-direction: column;
-    flex: 1;
     
-`;
-
-export const Left = styled.div`
-    ${contentCSS}
-    @media (min-width: 500px) {
-        padding-right: 32px;
+    position: relative;
+    
+    @media (min-width: 750px) {
+        flex-direction: row;
     }
-`;
-
-export const Right = styled.div`
-    ${contentCSS}
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-
-    height: 90vh;
+    overflow-y: auto;
     width: 100vw;
-
-    background: var(--primary);
+    max-width: 74rem;
+    padding: 2.4rem;
     z-index: 2;
-    position: relative;
-    flex-direction: column;
-
-    box-shadow: 0 0 16px #0005;
-
-    @media ( min-width: 1000px ) {
-        height:  min( 780px, 80vh );
-        height:  auto;
-        width: min( 1280px, 60vw );
-        border-radius: 16px;
-    }
-
 `;
+
 export const Header = styled.div`
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    /* background: blue; */
-    height: 120px;
-    padding: 0 32px;
+    margin-bottom: 6rem;
+`;
+
+export const BackPage = styled.div`
     > a {
-        font-size: 18px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin-top: 32px;
-        text-decoration: none;
+        > span {
+            font-size: 1.6rem;
+        }
     }
 `;
 
-export const ContentHeader = styled.div`
-    display: flex;
-    justify-content: space-between;
+export const LogoImg = styled.img`
+    width: 3.2rem;
+    height: 3.2rem;
+`;
 
-    position: relative;
-
-    > div#left {
-        > h2 {
-            margin-top: 20px;
-            color: var(--blue-dark);
-        }
-    }
-
-    > div#right {
-        display: flex;
-        align-items: center;
-
-        position: absolute;
-        right: 0;
-        > span {
-            display: none;
-            font-weight: 900;
-            margin-left: 8px;
-            @media (min-width: 500px) {
-                display: flex;
-            }
-        }
-    }
-
+export const ArrowLeftIcon = styled(ArrowLeft)`
+    fill: var(--secondary);
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1.6rem;
 `;
 
 export const Content = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: column;
-    padding: 32px;
-    padding-bottom: 80px;
-    flex-wrap: wrap;
-    background: var(--primary);
-    
-    @media ( min-width: 1000px ) {
-        border-radius: 16px;
-    }
-
-`;
-export const ContentBody = styled.div`
-    display: flex;
-    flex-direction: column;
-    @media (min-width: 500px) {
+    align-items: center;
+    @media (min-width: 700px) {
         flex-direction: row;
     }
-
 `;
 
-export const Logo = styled.img`
-    width: 48px;
-    height: auto;
-`;
-
-export const ArrowLeftIcon = styled(ArrowLeft)`
-    fill: var(--blue-dark);
-    height: 20px;
-    width: 20px;
-    margin-right: 16px;
-`;
-
-const formMarginTop = css`
-    margin-top: 16px;
-`;
-export const TextInput = styled(TInput)`
-    ${formMarginTop}
-`;
-
-export const PasswordInput = styled(TInput)`
-    ${formMarginTop}
-`;
-
-export const LoginButton = styled(Button)`
-    ${formMarginTop}
-`;
-
-export const CrossIcon = styled(XCircle)`
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    fill: var(--white);
-`;
-
-export const ErrorMessage = styled.div`
-    padding: 8px 20px;
-    border-radius: 4px;
-    background: var(--danger);
-    > span {
-        font-size: 14px;
-        color: var(--white);
+export const Register = styled.div`
+    margin-top: 2.4rem;
+    width: 48%;
+    > h1 {
+        font-size: 7rem;
+        color: var(--secondary);
+        font-family: Cairo;
+        line-height: 7.2rem;
+    }
+    > p {
+        margin-top: 2.4rem;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        margin-bottom: 2.4rem;
+        max-width: 18rem;
     }
 `;
 
+export const UserLoggedIn = styled.div`
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 48%;
+    background: var(--primary);
+    border-radius: 0.8rem;
+    padding: 1.6rem;
+
+    > h3 {
+        font-size: 2rem;
+        font-family: Cairo;
+        line-height: 2.4rem;
+    }
+`;
+export const UserInfo = styled.div`
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1.6rem;
+        > p {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+    }
+`;
+
+export const Avatar = styled.img`
+    width: 5rem;
+    height: 5rem;
+    border-radius: 4rem;
+    background: var(--primary-dark);
+    outline: 0;
+    margin-top: 2rem;
+`;
+
+export const FormsBg = styled.img`
+    position: absolute;
+    height: 100vh;
+    min-width: 100vw;
+    object-fit: cover;
+    opacity: 0.25;
+`;

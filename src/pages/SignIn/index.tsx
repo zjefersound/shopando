@@ -1,7 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 
 import BgImg from '../../assets/images/background-landing.png';
-import CartIcon from '../../assets/images/cart.png';
 import MallIcon from '../../assets/images/pink-mall.png';
 
 import { 
@@ -17,7 +16,6 @@ import {
     ArrowRightIcon,
     LogoContent,
     ShopandoIcon,
-    CartBg,
     FormsBg
 } from './styles';
 

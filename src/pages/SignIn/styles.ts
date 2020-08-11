@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
 import { ArrowRight } from '../../styles/Icons';
+import LandingBackground from '../../components/LandingBackground';
 
 const styleFormComponent = css`
     margin-top: 1.2rem;
@@ -11,10 +12,7 @@ const smoothOpacity = keyframes`
     100% { opacity: 1; }
 `;
 
-export const Container = styled.div`
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(to bottom right, var(--primary), var(--primary-dark)); 
+export const Container = styled(LandingBackground)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,9 +20,8 @@ export const Container = styled.div`
     flex-direction: column;
     
     position: relative;
-    overflow: hidden;
     
-    @media (min-width: 700px) {
+    @media (min-width: 1000px) {
         flex-direction: row;
     }
 `;
@@ -48,7 +45,7 @@ export const Wrapper = styled.div`
 
     overflow-y: auto;
 
-    @media (min-width: 1100px) {
+    @media (min-width: 800px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
