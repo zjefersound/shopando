@@ -60,17 +60,23 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
     color: var(--secondary);
     font-family: Cairo;
-    font-size: 8rem;
+    font-size: 6rem;
     line-height: 8.8rem;
     animation-name: ${smoothOpacity};
     animation-duration: 3s;
+    @media (min-width: 1100px) {
+        font-size: 8rem;
+    }
 `;
 
 export const Description = styled.p`
     font-size: 2.4rem;
     font-family: Montserrat;
-    max-width: 24rem;
+    max-width: 20rem;
     margin-top: 0.8rem;
+    > strong {
+        color: var(--secondary);
+    }
 `;
 
 export const Form = styled.div`

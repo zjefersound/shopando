@@ -89,7 +89,8 @@ const SignIn: React.FC = () => {
                 <Content>
                     <Title>Bem vindo!</Title>
                     <Description>
-                        Para começar, é só fazer o Log in!
+                        Para começar, é só fazer o {' '}
+                        <strong>Log in!</strong>
                     </Description>
                     <Form>
                         <Input 
@@ -120,7 +121,6 @@ const SignIn: React.FC = () => {
             </Wrapper>
             
             <FormsBg src={BgImg}/>
-            {/* <CartBg src={CartIcon}/> */}
         </Container>
     );
 }
