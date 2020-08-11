@@ -62,12 +62,13 @@ export const Content = styled.div`
     align-items: center;
     @media (min-width: 700px) {
         flex-direction: row;
+        justify-content: space-between;
     }
 `;
 
 export const Register = styled.div`
     margin-top: 2.4rem;
-    width: 48%;
+    width: 100%;
     > h1 {
         font-size: 7rem;
         color: var(--secondary);
@@ -81,6 +82,9 @@ export const Register = styled.div`
         margin-bottom: 2.4rem;
         max-width: 18rem;
     }
+    @media (min-width: 740px) {
+        width: 48%;
+    }
 `;
 
 export const UserLoggedIn = styled.div`
@@ -89,7 +93,7 @@ export const UserLoggedIn = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 48%;
+    width: 100%;
     background: var(--primary);
     border-radius: 0.8rem;
     padding: 1.6rem;
@@ -98,6 +102,9 @@ export const UserLoggedIn = styled.div`
         font-size: 2rem;
         font-family: Cairo;
         line-height: 2.4rem;
+    }
+    @media (min-width: 740px) {
+        width: 48%;
     }
 `;
 export const UserInfo = styled.div`

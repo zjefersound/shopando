@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent }  from 'react';
+import React, { useState, ChangeEvent }  from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FacebookLogin, { ReactFacebookLoginInfo } from 'react-facebook-login';
 
@@ -19,17 +19,9 @@ import {
 
 import BgImg from '../../assets/images/background-landing.png';
 import shopandoImg from '../../assets/images/pink-mall.png';
- 
-
-// const initialFromData = {
-//     name: '',
-//     email: '',
-//     phone: '',
-//     password: '',
-//     confirm_password: '',
-// };
 
 const Signup: React.FC = () => {
+    const [accessToken, setAccessToken] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [avatar, setAvatar] = useState('');
@@ -41,6 +33,7 @@ const Signup: React.FC = () => {
             setAvatar(newAvatar);
             setName(response.name);
             setEmail(response.email);
+            setAccessToken(response.accessToken);
         }
     }
     return (
