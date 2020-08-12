@@ -1,7 +1,5 @@
 import styled, {css} from 'styled-components';
 
-import NavBarContainer from '../../components/NavBar';
-
 import LogoHorizontal from '../../components/LogoHorizontal'
 import { 
     Camera,
@@ -10,6 +8,7 @@ import {
     Logout,
     Menu
 } from '../../styles/Icons';
+import Post from '../../components/Post';
 
 const contentArea = css`
     max-width: 1366px;
@@ -61,87 +60,33 @@ export const Content = styled.div`
         /* justify-content: center; */
     }
 `;
-export const SideBar = styled.div`
-    display: none;
-    height: 100%;
-    min-width: 24rem;
-    position: sticky;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    padding-top: 2.4rem;
-    max-width: 366px;
-    > ul li a, ul li button {
-        font-size: 2.4rem;
-        list-style: none;
-        text-decoration: none;
-        font-weight: 600;
-        margin-bottom: 2rem;
-        margin-left: 2rem;
-        cursor: pointer;
-        &:hover {
-            opacity: 0.7;
-        }
-    }
-    > ul li.logout a {
-        color: var(--danger);
-    }
-
-    @media(min-width: 740px) {
-        display: flex;
-        border-right: 0.1rem solid var(--outline);
-    }
-`;
 
 export const Main = styled.div`
     display: flex;
     flex-direction: column;
-    width: min(1000px, 100%);
+    /* width: min(1000px, 100%); */
+    width: 100%;
+
     > h2 {
         margin: 4rem 2.4rem 0;
         font-size: 3.2rem;
         color: var(--secondary);
     }
     @media (min-width: 740px) {
+        border-left: 0.1rem solid var(--outline);
+        border-right: 0.1rem solid var(--outline);
     }
 `;
 
 export const Photos = styled.div`
-    width: min(1000px, 100%);
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 0 1.6rem 5.6rem;
     justify-content: baseline;
 `;
 
-export const Image = styled.div`
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    background: var(--primary);
-    > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-    @media (min-width: 500px) {
-        height: 16rem;
-        width: 20rem;
-    }
-`;
-
-export const Post = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 1.6rem;
-    width: 20rem;
-    height: 24rem;
-    background: var(--primary);
-    > span {
-        margin: 1.6rem;
-        font-size: 1.6rem;
-    }
+export const PostItem = styled(Post)`
 `;
 
 const menuIconStyle = css`

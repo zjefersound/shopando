@@ -58,7 +58,7 @@ export const Title = styled.h1`
     color: var(--secondary);
     font-family: Cairo;
     font-size: 6rem;
-    line-height: 8.8rem;
+    line-height: 6rem;
     animation-name: ${smoothOpacity};
     animation-duration: 3s;
     @media (min-width: 1100px) {
@@ -160,7 +160,7 @@ export const LogoContent = styled.div`
     flex-direction: column;
     > span {
         display: none;
-        @media ( min-width: 700px ) {
+        @media ( min-width: 800px ) {
             display: flex;
             color: var(--secondary);
             font-family: Cairo;

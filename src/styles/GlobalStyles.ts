@@ -54,7 +54,7 @@ export default createGlobalStyle`
         --secondary: #F47E82;
         --secondary-dark: #db5a5e;
         --text: #27AFAF;
-        --outline: #206060;
+        --outline: #00353B;
         --white: #FFF;
         --success: #1AA371;
         --danger: #FF4040;
