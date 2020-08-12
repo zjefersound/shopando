@@ -48,34 +48,34 @@ const SignIn: React.FC = () => {
     }
 
     const login = async () => {
-        const { email, password } = formData;
-        if (email && password) {
-            try{
-                await api.get<UserResponse[]>('/users').then(res => {
-                    res.data.map( user => {
-                        if (
-                            user.email === formData.email &&
-                            user.password === formData.password    
-                        ) {
-                            const id = user.id;
-                            localStorage.setItem('id', String(id) );
-                            history.push('/home')    
-                        }
-                    })
-                });
+        // const { email, password } = formData;
+        // if (email && password) {
+        //     try{
+        //         await api.get<UserResponse[]>('/users').then(res => {
+        //             res.data.map( user => {
+        //                 if (
+        //                     user.email === formData.email &&
+        //                     user.password === formData.password    
+        //                 ) {
+        //                     const id = user.id;
+        //                     localStorage.setItem('id', String(id) );
+        //                     history.push('/home')    
+        //                 }
+        //             })
+        //         });
     
-            } catch( exception ){
-                alert(exception);
-            }
-            if (!validLogin) setErrorMessage('Usuário ou senha inválidos.');
+        //     } catch( exception ){
+        //         alert(exception);
+        //     }
+        //     if (!validLogin) setErrorMessage('Usuário ou senha inválidos.');
             
-        } else {
-            let message = '';
-            if(!email) message += `Email vazio.`;
-            if(!password) message += `Senha vazia.`;
-            if(!errorMessage) setErrorMessage(message);
-        }
-        
+        // } else {
+        //     let message = '';
+        //     if(!email) message += `Email vazio.`;
+        //     if(!password) message += `Senha vazia.`;
+        //     if(!errorMessage) setErrorMessage(message);
+        // }
+        history.push('/home');
     }
     return (
         <Container>

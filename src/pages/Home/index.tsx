@@ -16,7 +16,7 @@ import {
     VideoIcon,
     TextIcon,
     LogoutIcon,
-
+    Post,
 } from './styles';
 
 import { Link } from 'react-router-dom';
@@ -67,21 +67,37 @@ const Home: React.FC = () => {
                 <Main>
                     <h2>Fotos</h2>
                     <Photos>
-                        <Image>
-                            <img src={image} alt="foto"/>
-                        </Image>
-                        <Image>
-                            <img src={image} alt="foto"/>
-                        </Image>
-                        <Image>
-                            <img src={image} alt="foto"/>
-                        </Image>
-                        <Image>
-                            <img src={image} alt="foto"/>
-                        </Image>
-                        <Image>
-                            <img src={image} alt="foto"/>
-                        </Image>
+                        <Post>
+                            <Image>
+                                <img src={image} alt="foto"/>
+                            </Image>
+                            <span>Post</span>
+                        </Post>
+                        <Post>
+                            <Image>
+                                <img src={image} alt="foto"/>
+                            </Image>
+                            <span>Post</span>
+                        </Post>
+                        <Post>
+                            <Image>
+                                <img src={image} alt="foto"/>
+                            </Image>
+                            <span>Post</span>
+                        </Post>
+                        <Post>
+                            <Image>
+                                <img src={image} alt="foto"/>
+                            </Image>
+                            <span>Post</span>
+                        </Post>
+                        <Post>
+                            <Image>
+                                <img src={image} alt="foto"/>
+                            </Image>
+                            <span>Post</span>
+                        </Post>
+                        
                     </Photos>
                 </Main>
             </Content>

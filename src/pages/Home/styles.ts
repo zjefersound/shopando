@@ -103,28 +103,44 @@ export const Main = styled.div`
         color: var(--secondary);
     }
     @media (min-width: 740px) {
-        /* border-left: 0.1rem solid var(--outline) inherit;
-        border-right: 0.1rem solid var(--outline) inherit; */
     }
 `;
 
 export const Photos = styled.div`
-    max-width: 100vw;
+    width: min(1000px, 100%);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1.6rem 5.6rem;
+    justify-content: baseline;
 `;
 
 export const Image = styled.div`
     width: 100%;
     height: auto;
     overflow: hidden;
-
+    background: var(--primary);
     > img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        object-position: center;
     }
     @media (min-width: 500px) {
-        height: 20rem;
+        height: 16rem;
         width: 20rem;
+    }
+`;
+
+export const Post = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 1.6rem;
+    width: 20rem;
+    height: 24rem;
+    background: var(--primary);
+    > span {
+        margin: 1.6rem;
+        font-size: 1.6rem;
     }
 `;
 
@@ -153,4 +169,3 @@ export const LogoutIcon = styled(Logout)`
     ${menuIconStyle}
     fill: var(--danger);
 `;
-
