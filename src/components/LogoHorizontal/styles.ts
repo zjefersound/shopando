@@ -4,13 +4,17 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     > span {
-        display: flex;
+        color: var(--secondary);
         margin-left: 16px;
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: 900;
+        display: none;
+        @media (min-width: 1000px) {
+            display: flex;
+        } 
     }
 `;
 export const Logo = styled.img`
-    height: 38px;
+    height: 3.8rem;
     width: auto;
 `;

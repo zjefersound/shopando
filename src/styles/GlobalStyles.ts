@@ -45,7 +45,7 @@ export default createGlobalStyle`
         opacity: 0.7;
     }
     html {
-        background: var(--primary);
+        background: var(--primary-dark);
     }
     
     :root {
@@ -54,14 +54,14 @@ export default createGlobalStyle`
         --secondary: #F47E82;
         --secondary-dark: #db5a5e;
         --text: #27AFAF;
-
+        --outline: #206060;
         --white: #FFF;
+        --success: #1AA371;
+        --danger: #FF4040;
+
         --blue-light: #27AFAF;
         --blue-dark: #16636D;
         --brown: #503C29;
-        --outline: #987F68;
-        --success: #1AA371;
-        --danger: #BD5959;
         --dark-hover: #BD5959;
         --light-hover: #987F68;
         font-size: 60%;

@@ -3,6 +3,13 @@ export {
     ArrowRight,
     XCircle,
     Search,
-    UserCircle
+    UserCircle,
+    Camera,
+    Document,
+    Photograph,
+    Logout,
+    Menu,
 } from 'styled-icons/heroicons-solid';
-// export { X } from 'styled-icons/feather';
+export { 
+    Facebook
+} from 'styled-icons/feather';

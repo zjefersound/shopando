@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent }  from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FacebookLogin, { ReactFacebookLoginInfo } from 'react-facebook-login';
-
+// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { 
     Container,
     Wrapper,
@@ -15,6 +15,7 @@ import {
     UserInfo,
     Avatar,
     FormsBg,
+    FacebookLogo
 } from './styles';
 
 import BgImg from '../../assets/images/background-landing.png';
@@ -55,9 +56,12 @@ const Signup: React.FC = () => {
                         <FacebookLogin
                             appId="979559065826040"
                             autoLoad={false}
-                            fields="name,email,picture"
+                            fields="id,name,email,photos{images},picture"
                             callback={responseFacebook}
+                            icon={<FacebookLogo />}
+                            cssClass="my-facebook-button-class"
                         />
+                         
                     </Register>
                     <UserLoggedIn>
                         <h3>Usuário logado</h3>
@@ -66,6 +70,7 @@ const Signup: React.FC = () => {
                             <div>
                                 <p>{name}</p>
                                 <span>{email}</span>
+                                {accessToken && <p>tok</p> }
                             </div>
                         </UserInfo>
                     </UserLoggedIn>

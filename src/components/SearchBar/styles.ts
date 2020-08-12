@@ -5,11 +5,12 @@ import { Search } from '../../styles/Icons';
 export const Container = styled.div`
     display: none;
     @media ( min-width: 500px ) {
-        height: 38px;
-        background: var(--white);
+        height: 3.8rem;
+        border-radius: 1.9rem;
+        background: var(--primary);
         display: flex;
         align-items: center;
-        padding: 0 16px;
+        padding: 0 1.6rem;
     }
 `;
 

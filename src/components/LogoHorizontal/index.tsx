@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Logo } from './styles';
-import LogoImg from '../../assets/images/shopando.png';
+import LogoImg from '../../assets/images/pink-mall.png';
 
 const LogoHorizontal: React.FC = () => {
   return (
