@@ -57,14 +57,12 @@ export const Content = styled.div`
     overflow-x: hidden;
     @media(min-width: 740px) {
         flex-direction: row;
-        /* justify-content: center; */
     }
 `;
 
 export const Main = styled.div`
     display: flex;
     flex-direction: column;
-    /* width: min(1000px, 100%); */
     width: 100%;
 
     > h2 {
@@ -73,8 +71,6 @@ export const Main = styled.div`
         color: var(--secondary);
     }
     @media (min-width: 740px) {
-        border-left: 0.1rem solid var(--outline);
-        border-right: 0.1rem solid var(--outline);
     }
 `;
 
@@ -87,6 +83,12 @@ export const Photos = styled.div`
 `;
 
 export const PostItem = styled(Post)`
+`;
+
+export const Options = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 `;
 
 const menuIconStyle = css`

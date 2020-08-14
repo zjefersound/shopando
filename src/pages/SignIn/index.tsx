@@ -20,21 +20,10 @@ import {
 } from './styles';
 
 import { Link, useHistory } from 'react-router-dom';
-import api from '../../services/api';
-
-interface UserResponse {
-    id: number;
-    name: String;
-    email: String;
-    phone: String;
-    password: String;
-}
 
 const SignIn: React.FC = () => {
     const history = useHistory();
 
-    const [errorMessage, setErrorMessage] = useState('');
-    const [validLogin, setValidLogin] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -44,7 +33,6 @@ const SignIn: React.FC = () => {
         const { name, value } = event.target;
         const data = { ...formData, [name]: value }
         setFormData(data);
-        setErrorMessage('');
     }
 
     const login = async () => {

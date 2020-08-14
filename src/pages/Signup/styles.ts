@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import LandingBackground from '../../components/LandingBackground';
 
-import { ArrowLeft, XCircle, Facebook } from '../../styles/Icons';
+import { ArrowLeft, Facebook } from '../../styles/Icons';
 
 export const Container = styled(LandingBackground)`
     display: flex;

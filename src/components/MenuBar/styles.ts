@@ -11,6 +11,8 @@ export const Container = styled.div`
     left: 0;
     overflow-y: auto;
     padding-top: 2.4rem;
+
+    border-right: 0.1rem solid var(--outline);
  
     @media(min-width: 780px) {
         display: flex;

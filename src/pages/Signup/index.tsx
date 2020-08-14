@@ -1,7 +1,9 @@
-import React, { useState, ChangeEvent }  from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import FacebookLogin, { ReactFacebookLoginInfo } from 'react-facebook-login';
-// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { Context } from '../../Context/AuthContext';
+import facebookInfo from '../../services/facebookInfo';
+
 import { 
     Container,
     Wrapper,
@@ -11,9 +13,6 @@ import {
     ArrowLeftIcon,
     Content,
     Register,
-    UserLoggedIn,
-    UserInfo,
-    Avatar,
     FormsBg,
     FacebookLogo
 } from './styles';
@@ -21,21 +20,18 @@ import {
 import BgImg from '../../assets/images/background-landing.png';
 import shopandoImg from '../../assets/images/pink-mall.png';
 
-const Signup: React.FC = () => {
-    const [accessToken, setAccessToken] = useState('');
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [avatar, setAvatar] = useState('');
+const {appId} = facebookInfo;
 
-    const responseFacebook = (response: any) => {
-        console.log(response);
-        if (response){
-            const newAvatar = response.picture.data.url || '';
-            setAvatar(newAvatar);
-            setName(response.name);
-            setEmail(response.email);
-            setAccessToken(response.accessToken);
-        }
+const Signup: React.FC = () => {
+    const { handleLogin } = useContext(Context);
+
+    const responseFacebook = (response: ReactFacebookLoginInfo) => {
+        handleLogin(response);
+        // axios.get(`https://graph.facebook.com/v8.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=7a3464601feca768d20edd794eacf47d&fb_exchange_token=${response.accessToken}`)
+        //     .then(responseToken => {
+        //         localStorage.setItem('access_token', responseToken.data.access_token );
+        //         localStorage.setItem('token_type', responseToken.data.token_type );
+        //     });      
     }
     return (
         <Container>
@@ -54,26 +50,15 @@ const Signup: React.FC = () => {
                         <h1>Novo cadastro</h1>
                         <p>É novo por aqui? Faça seu cadastro agora mesmo!</p>
                         <FacebookLogin
-                            appId="979559065826040"
+                            appId={appId}
                             autoLoad={false}
-                            fields="id,name,email,photos{images},picture"
-                            callback={responseFacebook}
+                            fields="id"
+                            callback={ responseFacebook }
                             icon={<FacebookLogo />}
                             cssClass="my-facebook-button-class"
                         />
                          
                     </Register>
-                    <UserLoggedIn>
-                        <h3>Usuário logado</h3>
-                        <UserInfo>
-                            {avatar && <Avatar src={avatar}/>}
-                            <div>
-                                <p>{name}</p>
-                                <span>{email}</span>
-                                {accessToken && <p>tok</p> }
-                            </div>
-                        </UserInfo>
-                    </UserLoggedIn>
                 </Content>
             </Wrapper>
             <FormsBg src={BgImg}/>

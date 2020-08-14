@@ -16,11 +16,10 @@ const MenuBarItem: React.FC<MenuBarItemProps> = ({
 }) => {
     return (
         <Container 
-            className={String(className)}
             onClick={() => {onClick && onClick()}
         }>
             {icon()}
-            <span>
+            <span className={String(className)}>
                 {title}
             </span>
         </Container>

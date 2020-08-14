@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect, useContext }  from 'react';
 
 import { 
     Container,
@@ -9,6 +9,7 @@ import {
     Content,
     Main,
     Photos,
+    Options,
 
     PhotosIcon,
     VideoIcon,
@@ -17,14 +18,46 @@ import {
     PostItem as Post,
 } from './styles';
 
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+import { Context } from '../../Context/AuthContext';
 
 import MenuBar from '../../components/MenuBar';
 import MenuBarItem from '../../components/MenuBarItem';
-import { Link } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar';
 
+interface PostProps {
+    src: string;
+    description: string;
+}
+
 const Home: React.FC = () => {
-    const image = "https://scontent.fcfc3-1.fna.fbcdn.net/v/t31.0-0/p480x480/334608_182958278510193_1717468744_o.jpg?_nc_cat=111&_nc_sid=7aed08&_nc_ohc=bW9thCNF1hUAX9PmPdL&_nc_ht=scontent.fcfc3-1.fna&_nc_tp=6&oh=b6e0983b2e3a6fe83a6a04930a986ed1&oe=5F59CD73";
+    const {  handleLogout } = useContext(Context);
+    const token = localStorage.getItem('access_token');
+    
+    const [posts, setPosts] = useState<PostProps[]>([]);  
+
+    const logout = async () => {
+        await handleLogout();
+    }
+
+    useEffect(() => {
+        (async () => {
+            await axios.get(`https://graph.facebook.com/me?fields=id,name,photos%7Bname,%20images%7D&access_token=${token}`)
+                .then(response => {
+                    console.log(response.data.photos.data);
+                    const rawPosts = response.data.photos.data.map((post: any)=> {
+                        return {
+                            description: post.name,
+                            src: post.images[0].source,
+                        }
+                    });
+                    setPosts(rawPosts);
+                });
+        })();
+    },[]);
+
     return (
         <Container className='post-container'>
             <NavBar>
@@ -38,37 +71,43 @@ const Home: React.FC = () => {
             </NavBar>
             <Content>
                 <MenuBar>
-                    <MenuBarItem 
-                        icon={() => <PhotosIcon />} 
-                        title='Fotos'
-                        onClick={()=>{}}
-                    />
-                    <MenuBarItem 
-                        icon={() => <VideoIcon />} 
-                        title='Videos'
-                        onClick={()=>{}}
-                    />
-                    <MenuBarItem 
-                        icon={() => <TextIcon />} 
-                        title='Textos'
-                        onClick={()=>{}}
-                    />
-                    <Link to='/'>
+                    <Options>
                         <MenuBarItem 
-                            icon={()=><LogoutIcon />}
-                            title='Log out'
-                            className='log-out'
+                            icon={() => <PhotosIcon />} 
+                            title='Fotos'
+                            onClick={()=>{}}
                         />
-                    </Link>
+                        <MenuBarItem 
+                            icon={() => <VideoIcon />} 
+                            title='Videos'
+                            onClick={()=>{}}
+                        />
+                        <MenuBarItem 
+                            icon={() => <TextIcon />} 
+                            title='Textos'
+                            onClick={()=>{}}
+                        />
+                    </Options>
+                    <MenuBarItem 
+                        icon={()=><LogoutIcon />}
+                        title='Log out'
+                        className='log-out'
+                        onClick={ logout }
+                    />
                 </MenuBar>
                 <Main>
                     <h2>Fotos</h2>
                     <Photos>
-                        <Post src={image} alt="foto" description='olá'/>                   
-                        <Post src={image} alt="foto" description='olá'/>                   
-                        <Post src={image} alt="foto" description='olá'/>                   
-                        <Post src={image} alt="foto" description='olá'/>                   
-                        <Post src={image} alt="foto" description='olá'/>                   
+                        {posts.map((post, index)=>{
+                            return (
+                                <Post 
+                                    key={String(index)} 
+                                    src={post.src} 
+                                    alt="foto" 
+                                    description={post.description}
+                                />
+                            );                               
+                        })}
                     </Photos>
                 </Main>
             </Content>

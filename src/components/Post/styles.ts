@@ -14,7 +14,7 @@ export const Container = styled.div`
     @media ( min-width: 740px ) {
         width: calc(100% / 3);
     }
-    @media ( min-width: 1000px ) {
+    @media ( min-width: 1200px ) {
         width: calc(25%);
     }
 `;
@@ -24,9 +24,11 @@ export const PostContainer = styled.div`
     width: 100%;
     height: 100%;
     > span {
-        margin: 1.6rem;
+        display: flex;
+        padding: 1.6rem;
         font-size: 1.6rem;
     }
+    border-bottom: 0.1rem solid var(--secondary);
 
 `;
 
@@ -43,6 +45,5 @@ export const Image = styled.div`
     }
     @media (min-width: 740px) {
         height: 16rem;
-
     }
 `;
