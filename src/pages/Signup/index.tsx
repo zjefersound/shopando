@@ -13,12 +13,12 @@ import {
     ArrowLeftIcon,
     Content,
     Register,
-    FormsBg,
     FacebookLogo
 } from './styles';
 
 import BgImg from '../../assets/images/background-landing.png';
 import shopandoImg from '../../assets/images/pink-mall.png';
+import Background from '../../components/Background';
 
 const {appId} = facebookInfo;
 
@@ -26,12 +26,7 @@ const Signup: React.FC = () => {
     const { handleLogin } = useContext(Context);
 
     const responseFacebook = (response: ReactFacebookLoginInfo) => {
-        handleLogin(response);
-        // axios.get(`https://graph.facebook.com/v8.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=7a3464601feca768d20edd794eacf47d&fb_exchange_token=${response.accessToken}`)
-        //     .then(responseToken => {
-        //         localStorage.setItem('access_token', responseToken.data.access_token );
-        //         localStorage.setItem('token_type', responseToken.data.token_type );
-        //     });      
+        handleLogin(response);     
     }
     return (
         <Container>
@@ -61,7 +56,7 @@ const Signup: React.FC = () => {
                     </Register>
                 </Content>
             </Wrapper>
-            <FormsBg src={BgImg}/>
+            <Background src={BgImg}/>
         </Container>
     );
 }

@@ -167,11 +167,3 @@ export const Avatar = styled.img`
     background: var(--primary-dark);
     outline: 0;
 `;
-
-export const FormsBg = styled.img`
-    position: absolute;
-    height: 100vh;
-    min-width: 100vw;
-    object-fit: cover;
-    opacity: 0.25;
-`;

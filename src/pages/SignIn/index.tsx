@@ -16,10 +16,9 @@ import {
     ArrowRightIcon,
     LogoContent,
     ShopandoIcon,
-    FormsBg
 } from './styles';
-
 import { Link, useHistory } from 'react-router-dom';
+import Background from '../../components/Background';
 
 const SignIn: React.FC = () => {
     const history = useHistory();
@@ -106,7 +105,7 @@ const SignIn: React.FC = () => {
                 </Content>
             </Wrapper>
             
-            <FormsBg src={BgImg}/>
+            <Background src={BgImg}/>
         </Container>
     );
 }

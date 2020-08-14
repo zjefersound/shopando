@@ -189,10 +189,3 @@ export const CartBg = styled.img`
     bottom: 0;
     z-index: 1;
 `;
-export const FormsBg = styled.img`
-    position: absolute;
-    height: 100vh;
-    min-width: 100vw;
-    object-fit: cover;
-    opacity: 0.25;
-`;

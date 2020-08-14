@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Wrapper } from './styles';
 
 const MenuBar: React.FC = (props) => {
     return (
         <Container>
-            {props.children}
+            <Wrapper>
+                {props.children}
+            </Wrapper>
         </Container>
     );
 }

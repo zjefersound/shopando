@@ -29,7 +29,7 @@ export const NavBar = styled.div`
     z-index: 2;
     top: 0;
     position: sticky;
-    background: linear-gradient(to bottom left , var(--primary), var(--primary-dark));
+    background: linear-gradient(to  left , var(--outline), var(--primary));
     border-bottom: 0.04rem solid var(--outline);
 `;
 export const NavContent = styled.div`
@@ -51,6 +51,7 @@ export const MenuIcon = styled(Menu)`
 
 export const Content = styled.div`
     ${contentArea}
+    z-index: 2;
     display: flex;
     height:100%;
     width: 100vw;

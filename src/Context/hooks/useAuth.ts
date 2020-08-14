@@ -18,12 +18,14 @@ const useAuth = () => {
     const [authenticated, setAuthenticated] = useState(false);
     
     useEffect(()=>{
-        const token = localStorage.getItem('token');
-
-        if (token) {
-            //insert default headers to axios api and set authorization true
-            setAuthenticated(true); 
-        }
+        (async ()=>{
+            const token = await localStorage.getItem('token');
+    
+            if (token) {
+                //insert default headers to axios api and set authorization true
+                setAuthenticated(true); 
+            }
+        })();
         setLoading(false);
     },[]);
 
