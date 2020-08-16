@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     margin-top: 2rem;
     width: 100%;
-    padding: 2rem;
+    padding: 0.4rem;
     > span {
         margin: 1.6rem;
         font-size: 1.6rem;

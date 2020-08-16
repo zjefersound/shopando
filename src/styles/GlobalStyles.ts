@@ -49,7 +49,7 @@ export default createGlobalStyle`
     }
     
     :root {
-        --primary: #0a444b;
+        /* --primary: #0a444b;
         --primary-dark: #031a1d;
         --primary-transparent: #0a444b77;
         --primary-dark-transparent: #031a1d77;
@@ -68,7 +68,15 @@ export default createGlobalStyle`
         --blue-dark: #16636D;
         --brown: #503C29;
         --dark-hover: #BD5959;
-        --light-hover: #987F68;
+        --light-hover: #987F68; */
+        ${props => {
+            const theme = props.theme;
+            let append = '';
+            Object.entries(theme).forEach(([prop, value])=>{
+                append += `--${prop}: ${value};`;
+            });
+            return append;
+        }}
         font-size: 60%;
         
         @media (min-width: 700px) {

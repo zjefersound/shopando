@@ -29,6 +29,7 @@ import MenuBarItem from '../../components/MenuBarItem';
 import SearchBar from '../../components/SearchBar';
 import Background from '../../components/Background';
 import bgImg from '../../assets/images/background-landing.png';
+import { ThemeContext } from '../../Context/ThemeContext';
 
 interface PostProps {
     src: string;
@@ -39,10 +40,12 @@ interface FacebookResponseProps {
         data: any;
     };
     name: string;
+    posts:  any;
 }
 
 const Home: React.FC = () => {
-    const {  handleLogout } = useContext(Context);
+    const { handleLogout } = useContext(Context);
+    const { toggleTheme } = useContext(ThemeContext);
     const token = localStorage.getItem('access_token');
     
     //const [posts, setPosts] = useState<PostProps[]>([]);  
@@ -69,13 +72,20 @@ const Home: React.FC = () => {
     // },[]);
 
     //SWR
-    const {data} = useSWR<FacebookResponseProps>(`https://graph.facebook.com/me?fields=id,name,photos%7Bname,%20images%7D&access_token=${token}`);
+    const host = `https://graph.facebook.com/me`;
+    // const fields = `?fields=id,name,photos%7Bname,%20images%7D`;
+    const fields = `?fields=id,name,picture,posts%7Bfull_picture,description%7D,photos%7Bname,%20images%7D`;
+    const access = `&access_token=${token}`;
+    const url = `${host}${fields}${access}`
+    const {data} = useSWR<FacebookResponseProps>(url);
 
     return (
         <Container className='post-container'>
             <NavBar>
                 <NavContent>
-                    <Logo />
+                    <button onClick={ toggleTheme }>
+                        <Logo />
+                    </button>
                     <SearchBar />
                     <Link to='/profile'>
                         <MenuIcon />
@@ -111,7 +121,7 @@ const Home: React.FC = () => {
                 <Main>
                     <h2>Fotos</h2>
                     <Photos>
-                        {(data?.photos.data || []).map((post: any, index: number) => {
+                        {/* {(data?.photos.data || []).map((post: any, index: number) => {
                             return (
                                 <Post 
                                     key={String(index)} 
@@ -120,6 +130,23 @@ const Home: React.FC = () => {
                                     description={post.name}
                                 />
                             );                               
+                        })} */}
+                        {(data?.posts.data || []).map((post: any, index: number) => {
+                            if (post.full_picture){
+                                const text = String(post.description).length < 120 
+                                    ? post.description 
+                                    : post.description.substring(120, 0)+'...';
+                                return (
+                                    <Post 
+                                        key={String(index)} 
+                                        src={post.full_picture} 
+                                        alt="foto" 
+                                        description={text}
+                                    />
+                                );                               
+                            } else {
+                                return null;
+                            }
                         })}
                         {/* {posts.map((post, index)=>{
                             return (

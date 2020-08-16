@@ -32,7 +32,7 @@ const Routes = () => {
         <Switch>
             <CustomRoute path='/' exact component={ SignIn }/>
             <CustomRoute path='/signup' exact component={ Signup }/>
-            <CustomRoute isPrivate path='/home' exact component={ Home }/>
+            <CustomRoute path='/home' exact component={ Home }/>
         </Switch>
     );
 }

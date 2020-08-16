@@ -93,9 +93,10 @@ export const Options = styled.div`
 `;
 
 const menuIconStyle = css`
+    flex-shrink: 0;
     height: 2.8rem;
     width: 2.8rem;
-    margin-right: 3.2rem;
+    margin-right: 1.6rem;
     fill: var(--secondary);
 `;
 

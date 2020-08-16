@@ -10,7 +10,7 @@ export const Container = styled.button`
     font-weight: 700;
     font-family: Assistant;
     padding-bottom: 2rem;
-    padding-left: 2rem;
+    padding-left: 1.6rem;
     cursor: pointer;
     
     &:hover {
