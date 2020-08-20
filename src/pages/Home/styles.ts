@@ -21,24 +21,16 @@ export const Container = styled.div`
     height: 100vh;
     max-height: 100vh;
     display: flex;
-
     flex-direction: column;
+    overflow: hidden;
 `;
 
-export const NavBar = styled.div`
-    z-index: 2;
-    top: 0;
-    position: sticky;
-    background: linear-gradient(to  left , var(--outline), var(--primary));
-    border-bottom: 0.04rem solid var(--outline);
-`;
 export const NavContent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
     padding: 2rem;
-    ${contentArea}
 `;
 export const Logo = styled(LogoHorizontal)`
     margin-left: 32px;
@@ -51,11 +43,12 @@ export const MenuIcon = styled(Menu)`
 
 export const Content = styled.div`
     ${contentArea}
-    z-index: 2;
+    z-index: 1;
     display: flex;
     height:100%;
     width: 100vw;
     overflow-x: hidden;
+    flex-direction: column;
     @media(min-width: 740px) {
         flex-direction: row;
     }
@@ -84,6 +77,13 @@ export const Photos = styled.div`
 `;
 
 export const PostItem = styled(Post)`
+`;
+
+export const DrawerMenuContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 `;
 
 export const Options = styled.div`

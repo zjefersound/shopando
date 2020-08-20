@@ -4,13 +4,14 @@ export const Container = styled.button`
     display: flex;
     align-items: center;
     width: 100%;
-    font-size: 2.4rem;
+    font-size: 2rem;
     list-style: none;
     text-decoration: none;
-    font-weight: 700;
     font-family: Assistant;
     padding-bottom: 2rem;
     padding-left: 1.6rem;
+
+    max-height: 6.4rem;
     cursor: pointer;
     
     &:hover {

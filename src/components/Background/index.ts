@@ -4,6 +4,8 @@ export default styled.img`
     position: absolute;
     height: 100vh;
     min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
     object-fit: cover;
     opacity: 0.25;
 `;

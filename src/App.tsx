@@ -5,7 +5,7 @@ import Routes from './routes';
 import { Router } from 'react-router-dom';
 
 import { CustomThemeProvider } from './Context/ThemeContext';
-import {AuthProvider} from './Context/AuthContext';
+import { AuthProvider } from './Context/AuthContext';
 import history from './history';
 import { SWRConfig } from 'swr';
 import axios from 'axios';

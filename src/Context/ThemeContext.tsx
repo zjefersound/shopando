@@ -9,7 +9,7 @@ const ThemeContext = createContext({
 
 
 const CustomThemeProvider: React.FC = ({children}) => {
-    const [themeName, setThemeName] = useState<ThemeName>('light');
+    const [themeName, setThemeName] = useState<ThemeName>('dark');
     const currentTheme = themes[themeName];
     const toggleTheme = () => {
         const newTheme = themeName === 'light' ? 'dark' : 'light';

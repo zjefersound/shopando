@@ -13,7 +13,7 @@ export const Container = styled.div`
     overflow-y: auto;
     padding: 1rem;
 
-    /* border-right: 0.1rem solid var(--outline);*/
+    border-right: 0.1rem solid var(--outline);
     @media(min-width: 780px) {
         display: flex;
         flex-direction: column;
@@ -32,5 +32,5 @@ export const Wrapper = styled.div`
     flex-direction: column;
     background: linear-gradient(to bottom, var(--primary-transparent), var(--outline-transparent));
     box-shadow: 0 0 1rem var(--shadow);
-    border-radius: 2rem;
+    border-bottom: 0.1rem solid var(--secondary);
 `;

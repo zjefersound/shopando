@@ -49,26 +49,6 @@ export default createGlobalStyle`
     }
     
     :root {
-        /* --primary: #0a444b;
-        --primary-dark: #031a1d;
-        --primary-transparent: #0a444b77;
-        --primary-dark-transparent: #031a1d77;
-        --secondary: #F47E82;
-        --secondary-dark: #db5a5e;
-        --text: #27AFAF;
-        --outline: #00353B;
-        --outline-transparent: #00353B77;
-        --white: #FFF;
-        --success: #1AA371;
-        --danger: #FF4040;
-        --shadow: #0002;
-
-
-        --blue-light: #27AFAF;
-        --blue-dark: #16636D;
-        --brown: #503C29;
-        --dark-hover: #BD5959;
-        --light-hover: #987F68; */
         ${props => {
             const theme = props.theme;
             let append = '';
