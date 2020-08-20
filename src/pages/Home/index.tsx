@@ -38,6 +38,10 @@ interface FacebookResponseProps {
         data: any;
     };
     name: string;
+    email: string;
+    picture: {
+        data: any;
+    };
     posts:  any;
 }
 
@@ -53,7 +57,7 @@ const Home: React.FC = () => {
 
     //SWR
     const host = `https://graph.facebook.com/me`;
-    const fields = `?fields=id,name,picture,posts%7Bfull_picture,description%7D,photos%7Bname,%20images%7D`;
+    const fields = `?fields=id,name,email,picture,posts%7Bfull_picture,description%7D,photos%7Bname,%20images%7D`;
     const access = `&access_token=${token}`;
     const url = `${host}${fields}${access}`
     const {data} = useSWR<FacebookResponseProps>(url);
@@ -68,7 +72,11 @@ const Home: React.FC = () => {
                     <SearchBar />
                     <DrawerMenu>
                         <DrawerMenuContent>
-                            <Avatar />
+                            <Avatar 
+                                name={String(data?.name)}
+                                email={String(data?.email)}
+                                url={String(data?.picture.data.url)}
+                            />
                         </DrawerMenuContent>
                         <MenuBarItem 
                             icon={()=><LogoutIcon />}

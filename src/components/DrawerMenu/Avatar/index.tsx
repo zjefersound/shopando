@@ -12,16 +12,20 @@ interface AvatarProps {
     email: string;
 }
 
-const Avatar: React.FC = () => {
+const Avatar: React.FC<AvatarProps> = ({
+    email,
+    name,
+    url
+}) => {
     return (
         <Container>
-            <img src="https://avatars3.githubusercontent.com/u/62676057" alt="Foto"/>
+            <img src={url} alt="Foto"/>
             <div>
                 <Name>
-                    Jeferson
+                    {name}
                 </Name>
                 <Email>
-                    jef@gmail.com
+                    {email}
                 </Email>
             </div>
         </Container>
